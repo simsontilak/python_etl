@@ -4,10 +4,12 @@ DELETE_MANUFACTURING_CAPACITY_QUERY = "DELETE FROM manufacturing_capacity"
 DELETE_PRODUCT_QUERY = "DELETE FROM product"
 
 INSERT_PRODUCT_QUERY = "INSERT INTO product (product_name) VALUES ('{product_name_var}')"
+
 INSERT_PRODUCT_COST_QUERY = '''INSERT INTO product_cost 
                             (product_id,fixed_cost_qty,fixed_cost,unit_cost,outsourcing_unit_cost) 
                             VALUES ({product_id_var},{lot_var},{fixed_cost_var},{variable_cost_var},
                             {out_sourcing_cost_var})'''
+
 INSERT_MANUFACTURING_CAPACITY_QUERY = '''INSERT INTO manufacturing_capacity 
                                         (product_id,month,qty) 
                                         VALUES ({given_product_id_var},{given_month_var},

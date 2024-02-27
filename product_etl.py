@@ -28,12 +28,12 @@ def create_product_cost(connection, given_cursor, given_product_id):
         out_sourcing_cost = round(((fixed_cost / lot) + variable_cost)
                                   * (1 + random.uniform(product_config.OUTSOURCING_COST_FACTOR_START,
                                                         product_config.OUTSOURCING_COST_FACTOR_END)), 2)
-
-        cost_sql = product_query.INSERT_PRODUCT_COST_QUERY.format(given_product_id_var=given_product_id,
-                                                                  lot_var=lot,
-                                                                  fixed_cost_var=fixed_cost,
-                                                                  variable_cost_var=variable_cost,
-                                                                  out_sourcing_cost_var=out_sourcing_cost)
+        cost_sql = (product_query.INSERT_PRODUCT_COST_QUERY
+                    .format(product_id_var=given_product_id,
+                            lot_var=lot,
+                            fixed_cost_var=fixed_cost,
+                            variable_cost_var=variable_cost,
+                            out_sourcing_cost_var=out_sourcing_cost))
         given_cursor.execute(cost_sql)
     connection.commit()
 
